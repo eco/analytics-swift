@@ -30,6 +30,7 @@ public class Configuration {
         var autoAddSegmentDestination: Bool = true
         var apiHost: String = HTTPClient.getDefaultAPIHost()
         var cdnHost: String = HTTPClient.getDefaultCDNHost()
+        var maximumLogFilesOnDisk : Int = 15
     }
     internal var values: Values
 
@@ -95,5 +96,11 @@ public extension Configuration {
         values.cdnHost = value
         return self
     }
+    
+    @discardableResult
+     func maximumLogFilesOnDisk(_ value: Int) -> Configuration {
+         values.maximumLogFilesOnDisk = value
+         return self
+     }
 }
 
